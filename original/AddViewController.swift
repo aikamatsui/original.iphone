@@ -22,8 +22,8 @@ class AddViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var goodbutton: UIButton!
     @IBOutlet var sadbutton: UIButton!
     
-    var diaryArray: [Dictionary<String, String>] = []
-    let saveData = UserDefaults.standard
+    var feelingNumber: Int = 0
+    
     
     
     @IBAction func happybuttonPush(_ sender: Any) {
@@ -32,7 +32,7 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         smilebutton.setImage(UIImage(named: "pink2"), for: .normal)
         goodbutton.setImage(UIImage(named: "green2"), for: .normal)
         sadbutton.setImage(UIImage(named: "blue2"), for: .normal)
-        
+        feelingNumber = 0
         }
     
     @IBAction func smilebuttonPush(_ sender: Any) {
@@ -41,7 +41,7 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         smilebutton.setImage(UIImage(named: "pink"), for: .normal)
         goodbutton.setImage(UIImage(named: "green2"), for: .normal)
         sadbutton.setImage(UIImage(named: "blue2"), for: .normal)
-        
+        feelingNumber = 1
         }
     
     @IBAction func goodbuttonPush(_ sender: Any) {
@@ -50,7 +50,7 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         smilebutton.setImage(UIImage(named: "pink2"), for: .normal)
         goodbutton.setImage(UIImage(named: "green"), for: .normal)
         sadbutton.setImage(UIImage(named: "blue2"), for: .normal)
-        
+        feelingNumber = 2
         }
     
     @IBAction func sadbuttonPush(_ sender: Any) {
@@ -59,53 +59,43 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         smilebutton.setImage(UIImage(named: "pink2"), for: .normal)
         goodbutton.setImage(UIImage(named: "green2"), for: .normal)
         sadbutton.setImage(UIImage(named: "blue"), for: .normal)
-        
+        feelingNumber = 3
         }
     
     
     @IBAction func savediary() {
+
+                let diary = Diary()
+        diary.date = self.dateTextField.text!
+        diary.contents = self.contentsTextField.text!
+        diary.feelingNumber = self.feelingNumber
+
+        let realm = try! Realm()
+                try! realm.write {
+                    realm.add(diary, update: true)
+                }
+
+                self.dismiss(animated: true, completion: nil)
+
         
-        let date: String = dateTextField.text!
-        let contents: String = contentsTextField.text!
-        
-        let diary: diary? = read()
-        
-        if let diary = diary {
-            try! realm.write {
-                diary.date = date
-                diary.contents = contents
-            }
-//        } else {
-//            let newDiary = diary()
-//            newDiary.date = date
-//            newDiary.contents = contents
-//
-//            try! realm.write {
-//                realm.add(newDiary)
-//            }
-            
         }
         
-        let diaryDictionary = ["date": dateTextField.text!, "contents": contentsTextField.text!]
+       
         
-        diaryArray.append(diaryDictionary)
-        saveData.set(diaryDictionary, forKey: "diary")
-        
-        
-        let alert = UIAlertController(
-            title: "保存完了",
-            message: "日記を追加しました",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: nil
-        ))
-        present(alert, animated: true, completion: nil)
-        dateTextField.text = ""
-        contentsTextField.text = ""
-        
+//        let alert = UIAlertController(
+//            title: "保存完了",
+//            message: "日記を追加しました",
+//            preferredStyle: .alert
+//        )
+//        alert.addAction(UIAlertAction(
+//            title: "OK",
+//            style: .default,
+//            handler: nil
+//        ))
+//        present(alert, animated: true, completion: nil)
+//        dateTextField.text = ""
+//        contentsTextField.text = ""
+//
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //                    // 0.5秒後に実行したい処理
 //                     self.performSegue(withIdentifier: "セグエのid", sender: nil)
@@ -122,10 +112,6 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         
 
         
-        if saveData.array(forKey: "diary") != nil{
-            diaryArray = saveData.array(forKey: "diary") as! [Dictionary<String, String>]
-        
-            }
         
         dateTextField.delegate = self
         contentsTextField.delegate = self

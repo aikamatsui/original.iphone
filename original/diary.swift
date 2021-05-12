@@ -8,9 +8,9 @@
 import Foundation
 import RealmSwift
 
-class diary: Object {
+class Diary: Object {
     @objc dynamic var date: String = ""
-    @objc dynamic var feeling: Int = 0
+    @objc dynamic var feelingNumber: Int = 0
     @objc dynamic var contents: String = ""
 
 }

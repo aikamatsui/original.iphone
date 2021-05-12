@@ -26,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let diary: Diary? = read()
+//        let diary: Diary? = read()
         
     }
     

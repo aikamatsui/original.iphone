@@ -25,6 +25,13 @@ class AddViewController: UIViewController, UITextFieldDelegate{
     var feelingNumber: Int = 0
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        dateTextField.delegate = self
+        contentsTextField.delegate = self
+        
+    }
     
     @IBAction func happybuttonPush(_ sender: Any) {
         
@@ -71,79 +78,12 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         diary.feelingNumber = self.feelingNumber
 
         let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
                 try! realm.write {
-                    realm.add(diary, update: true)
+                    realm.add(diary.self)
                 }
 
                 self.dismiss(animated: true, completion: nil)
-
-        
-        }
-        
-       
-        
-//        let alert = UIAlertController(
-//            title: "保存完了",
-//            message: "日記を追加しました",
-//            preferredStyle: .alert
-//        )
-//        alert.addAction(UIAlertAction(
-//            title: "OK",
-//            style: .default,
-//            handler: nil
-//        ))
-//        present(alert, animated: true, completion: nil)
-//        dateTextField.text = ""
-//        contentsTextField.text = ""
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    // 0.5秒後に実行したい処理
-//                     self.performSegue(withIdentifier: "セグエのid", sender: nil)
-//                    }
         
     }
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
-
-        
-        
-        dateTextField.delegate = self
-        contentsTextField.delegate = self
-        
-        let diary: diary? = read()
-        
-        if let diary = diary {
-            dateTextField.text = diary.date
-            contentsTextField.text = diary.contents
-            
-        }
-        // Do any additional setup after loading the view.
-        
-        
-    }
-    
-    func read() -> diary? {
-        return realm.objects(diary.self).first
-        
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

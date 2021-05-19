@@ -29,9 +29,49 @@ class AddViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         dateTextField.delegate = self
+        dateTextField.placeholder = "4/1"
+        dateTextField.keyboardType = UIKeyboardType.phonePad
+        dateTextField.returnKeyType = UIReturnKeyType.done
+        
         contentsTextField.delegate = self
+        contentsTextField.placeholder = "今日はバスケした"
+        dateTextField.returnKeyType = UIReturnKeyType.done
+        dateTextField.keyboardType = UIKeyboardType.emailAddress
+        
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+                tapGR.cancelsTouchesInView = false
+                self.view.addGestureRecognizer(tapGR)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    }
+
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+            if !contentsTextField.isFirstResponder {
+                return
+            }
+        
+            if self.view.frame.origin.y == 0 {
+                if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                    self.view.frame.origin.y -= keyboardRect.height
+                }
+            }
+        }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
     
     @IBAction func happybuttonPush(_ sender: Any) {
         

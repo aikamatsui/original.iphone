@@ -10,23 +10,26 @@ import RealmSwift
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
-    let realm = try! Realm()
+
     
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
     @IBOutlet var AddButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
     
-    @IBAction func back(sender: UIStoryboardSegue){
-        
-    }
+    var results: Results<Diary>! = nil//Diaryclassを取得してデータを格納する変数を作成
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        let diary: Diary? = read()
+//        collectionView.delegate = self
+        let realm = try! Realm()//realmインスタンスの取得
+        results = realm.objects(Diary.self)//realmのデータ全件取り出し
+    }
+    
+    @IBAction func back(sender: UIStoryboardSegue){
         
     }
     
@@ -43,8 +46,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 28// 表示するセルの数
+        return self.results.count// 表示するセルの数
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

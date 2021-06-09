@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A86FE0A62670CD3A00795350 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86FE0A52670CD3A00795350 /* ContentsViewController.swift */; };
 		A88387E42610CAB000C2879D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88387E32610CAB000C2879D /* AddViewController.swift */; };
 		A89397962611AAD50032FB64 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A89397952611AAD50032FB64 /* Realm */; };
 		A89397982611AAD50032FB64 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A89397972611AAD50032FB64 /* RealmSwift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A86FE0A52670CD3A00795350 /* ContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		A88387E32610CAB000C2879D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		A893979C2611AC130032FB64 /* diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diary.swift; sourceTree = "<group>"; };
 		A8DDAE9B2612BC7400F0A7B3 /* DiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				A8F4A99C2610A97300A53BBD /* ViewController.swift */,
 				A8F4A99E2610A97300A53BBD /* Main.storyboard */,
 				A88387E32610CAB000C2879D /* AddViewController.swift */,
+				A86FE0A52670CD3A00795350 /* ContentsViewController.swift */,
 				A8F4A9A12610A97700A53BBD /* Assets.xcassets */,
 				A8F4A9A32610A97700A53BBD /* LaunchScreen.storyboard */,
 				A8F4A9A62610A97700A53BBD /* Info.plist */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A893979D2611AC130032FB64 /* diary.swift in Sources */,
+				A86FE0A62670CD3A00795350 /* ContentsViewController.swift in Sources */,
 				A8F4A99D2610A97300A53BBD /* ViewController.swift in Sources */,
 				A8F4A9992610A97300A53BBD /* AppDelegate.swift in Sources */,
 				A88387E42610CAB000C2879D /* AddViewController.swift in Sources */,

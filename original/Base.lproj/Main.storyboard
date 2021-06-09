@@ -88,6 +88,7 @@
                         <outlet property="collectionView" destination="dar-lD-Cvp" id="xfc-ma-v91"/>
                         <outlet property="monthLabel" destination="IXD-tf-o6X" id="2g6-SQ-mAv"/>
                         <outlet property="yearLabel" destination="Z83-hj-D9Y" id="05L-3c-9oV"/>
+                        <segue destination="SfR-SM-7FN" kind="presentation" identifier="toContentsView" id="TnH-4w-xxW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -209,12 +210,12 @@
             </objects>
             <point key="canvasLocation" x="962" y="88"/>
         </scene>
-        <!--View Controller-->
+        <!--Contents View Controller-->
         <scene sceneID="oM2-9F-kcP">
             <objects>
-                <viewController id="SfR-SM-7FN" sceneMemberID="viewController">
+                <viewController id="SfR-SM-7FN" customClass="ContentsViewController" customModule="original" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oKS-IF-kji">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uae-ky-Bah">
@@ -239,7 +240,11 @@
                                 <items>
                                     <navigationItem title="Title" id="dpm-dz-36H">
                                         <barButtonItem key="leftBarButtonItem" title="←" id="6jd-4u-fKA"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Back" id="T8b-be-baq"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Back" id="T8b-be-baq">
+                                            <connections>
+                                                <action selector="back" destination="SfR-SM-7FN" id="JPB-v1-qU5"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

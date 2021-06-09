@@ -51,10 +51,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return self.results.count// 表示するセルの数
         }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DiaryCollectionViewCell
-            let nameArry = ["orange","blue","green","pink"]
-            cell.image.image = UIImage(named: nameArry[Int.random(in: 0...3)])
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DiaryCollectionViewCell//カスタムセルを再利用して使う設定
+            let nameArry = ["orange","pink","green","blue"]
+        cell.image.image = UIImage(named: nameArry[results[indexPath.row].feelingNumber])
             
             return cell
         }

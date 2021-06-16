@@ -11,6 +11,8 @@ import RealmSwift
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
 
+    var date: String = ""
+    var contents: String = ""
     
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
@@ -18,8 +20,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet var collectionView: UICollectionView!
     
     var results: Results<Diary>! = nil//Diaryclassを取得してデータを格納する変数を作成
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DiaryCollectionViewCell//カスタムセルを再利用して使う設定
             let nameArry = ["orange","pink","green","blue"]
         cell.image.image = UIImage(named: nameArry[results[indexPath.row].feelingNumber])
-            
+         date = results[indexPath.row].date
+         contents = results[indexPath.row].contents
             return cell
         }
      
@@ -66,6 +67,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             return CGSize(width: cellSize, height: cellSize)
         }
     
-    
+    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toContentsView" {
+            let ContentsViewController = segue.destination as! ContentsViewController
+            ContentsViewController.date = self.date
+            ContentsViewController.contents = self.contents
+        }
+    }
 }
+
 

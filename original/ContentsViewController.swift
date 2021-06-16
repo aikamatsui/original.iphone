@@ -12,6 +12,7 @@ class ContentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func back() {
@@ -19,12 +20,7 @@ class ContentsViewController: UIViewController {
             .dismiss(animated: true, completion: nil)
     }
     
-    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toContentsView" {
-            let ContentsViewController = segue.destination as! ContentsViewController
-            ContentsViewController.
-        }
-    }
+
     
     
 

@@ -9,11 +9,15 @@ import UIKit
 
 class ContentsViewController: UIViewController {
 
+    var date: String = ""
+    var contents: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
     }
+    
+
     
     @IBAction func back() {
         self.presentingViewController?.presentingViewController?

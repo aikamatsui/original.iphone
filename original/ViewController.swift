@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     var date: String = ""
     var contents: String = ""
+    var cellIndexPath: Int = 0
     
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var monthLabel: UILabel!
@@ -56,8 +57,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DiaryCollectionViewCell//カスタムセルを再利用して使う設定
             let nameArry = ["orange","pink","green","blue"]
         cell.image.image = UIImage(named: nameArry[results[indexPath.row].feelingNumber])
-         date = results[indexPath.row].date
-         contents = results[indexPath.row].contents
+        
+//         date = results[indexPath.row].date
+//         contents = results[indexPath.row].contents
             return cell
         }
      
@@ -67,11 +69,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             return CGSize(width: cellSize, height: cellSize)
         }
     
+    //セルのタップを感知した時に呼ばれるメソッド
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell: UICollectionViewCell = collectionView.cellForItem(at: indexPath) as?
+        DiaryCollectionViewCell else {return}
+
+        //indexpath.rowを取得
+        cellIndexPath = indexPath.row
+        //アイテム詳細画面に遷移する
+        performSegue(withIdentifier: "toContentsView", sender: self.cellIndexPath)
+    }
+    
+    
+
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toContentsView" {
-            let ContentsViewController = segue.destination as! ContentsViewController
-            ContentsViewController.date = self.date
-            ContentsViewController.contents = self.contents
+            let contentsViewController = segue.destination as! ContentsViewController
+            contentsViewController.cellIndexPath = self.cellIndexPath
+//            contentsViewController.contents = self.contents
         }
     }
 }

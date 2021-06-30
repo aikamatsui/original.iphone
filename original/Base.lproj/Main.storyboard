@@ -238,9 +238,9 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="dpm-dz-36H">
+                                    <navigationItem title="今日の出来事" id="dpm-dz-36H">
                                         <barButtonItem key="leftBarButtonItem" title="←" id="6jd-4u-fKA"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Back" id="T8b-be-baq">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="T8b-be-baq">
                                             <connections>
                                                 <action selector="back" destination="SfR-SM-7FN" id="JPB-v1-qU5"/>
                                             </connections>

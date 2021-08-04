@@ -17,23 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z83-hj-D9Y">
-                                <rect key="frame" x="173" y="69" width="45" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MARCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXD-tf-o6X">
-                                <rect key="frame" x="120" y="94" width="150" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NotoSansKannada-Bold" family="Noto Sans Kannada" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dar-lD-Cvp">
-                                <rect key="frame" x="40" y="145" width="310" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dar-lD-Cvp">
+                                <rect key="frame" x="40" y="83" width="310" height="634"/>
                                 <color key="backgroundColor" red="0.96469408270000001" green="0.96469980479999995" blue="0.96471446750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8jh-II-YFg">
                                     <size key="itemSize" width="60" height="60"/>
@@ -66,10 +51,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="51B-M9-eBr"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ale-WL-RYf" customClass="AddButton">
-                                <rect key="frame" x="163" y="726" width="65" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ale-WL-RYf" customClass="AddButton">
+                                <rect key="frame" x="162.66666666666666" y="725" width="65" height="65"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="0.36438154363307823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Sxx-KC-QzX"/>
+                                    <constraint firstAttribute="width" constant="65" id="zek-dR-KL6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="78"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,13 +69,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.95454659916105722" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dar-lD-Cvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1h7-Ut-ygS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ale-WL-RYf" secondAttribute="bottom" constant="20" id="HXw-vP-sLf"/>
+                            <constraint firstItem="ale-WL-RYf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VlJ-wB-gba"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Qe-qd-Wbp"/>
                     <connections>
                         <outlet property="AddButton" destination="ale-WL-RYf" id="V74-7I-Lje"/>
                         <outlet property="collectionView" destination="dar-lD-Cvp" id="xfc-ma-v91"/>
-                        <outlet property="monthLabel" destination="IXD-tf-o6X" id="2g6-SQ-mAv"/>
-                        <outlet property="yearLabel" destination="Z83-hj-D9Y" id="05L-3c-9oV"/>
                         <segue destination="SfR-SM-7FN" kind="presentation" identifier="toContentsView" id="TnH-4w-xxW"/>
                     </connections>
                 </viewController>
@@ -223,7 +214,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bic-fQ-8Sg">
@@ -231,7 +222,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSw-cv-dGn">
@@ -242,7 +233,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="←" id="6jd-4u-fKA"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="T8b-be-baq">
                                             <connections>
-                                                <action selector="back" destination="SfR-SM-7FN" id="JPB-v1-qU5"/>
+                                                <action selector="back" destination="SfR-SM-7FN" id="rwl-KE-ywv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -256,6 +247,11 @@
                         <viewLayoutGuide key="safeArea" id="Tl9-p8-Dhn"/>
                         <color key="backgroundColor" red="0.96469408270000001" green="0.96469980479999995" blue="0.96471446750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="uae-ky-Bah" id="GSx-Nk-i4l"/>
+                        <outlet property="dateTextView" destination="Bic-fQ-8Sg" id="KEJ-ay-dFo"/>
+                        <outlet property="fellingImageView" destination="2uN-qf-Hbg" id="ZXx-97-tf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxy-S0-bKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

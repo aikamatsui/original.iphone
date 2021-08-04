@@ -64,7 +64,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
      
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let horizontalSpace : CGFloat = 40
+            let horizontalSpace : CGFloat = 50
             let cellSize : CGFloat = self.view.bounds.width / 4 - horizontalSpace
             return CGSize(width: cellSize, height: cellSize)
         }
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             contentsViewController.cellIndexPath = self.cellIndexPath
 //            contentsViewController.contents = self.contents
         }
+        
     }
 }
-
 

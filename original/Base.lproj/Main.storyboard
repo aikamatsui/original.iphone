@@ -91,11 +91,10 @@
         <scene sceneID="plR-65-UZF">
             <objects>
                 <viewController id="stc-hc-Vrp" customClass="AddViewController" customModule="original" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="92x-ux-hgN">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92x-ux-hgN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ut-iQ-kPk" customClass="dateLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ut-iQ-kPk" customClass="dateLabel">
                                 <rect key="frame" x="178" y="143" width="34" height="17"/>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -107,7 +106,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNg-lx-1Dh" customClass="dateTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNg-lx-1Dh" customClass="dateTextField">
                                 <rect key="frame" x="120" y="190" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="aem-Eq-U8j"/>
@@ -121,6 +120,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwr-p7-Bup" customClass="ContentsTextField">
+                                <rect key="frame" x="120" y="578" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Cfw-8n-PCo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x12-XC-Xh6">
                                 <rect key="frame" x="0.0" y="49" width="390" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,16 +147,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwr-p7-Bup" customClass="ContentsTextField">
-                                <rect key="frame" x="120" y="578" width="150" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Cfw-8n-PCo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-2N-nJD">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" id="jxz-2N-nJD">
                                 <rect key="frame" x="70" y="411" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCj-at-WoG">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="50"/>
@@ -193,7 +193,7 @@
                             <constraint firstItem="5ut-iQ-kPk" firstAttribute="centerX" secondItem="92x-ux-hgN" secondAttribute="centerX" id="9Cv-Ag-FD8"/>
                             <constraint firstItem="zNg-lx-1Dh" firstAttribute="top" secondItem="5ut-iQ-kPk" secondAttribute="bottom" constant="30" id="IiO-Gn-2BW"/>
                             <constraint firstItem="jxz-2N-nJD" firstAttribute="top" secondItem="MkK-Qu-OPO" secondAttribute="bottom" constant="100" id="QcJ-kY-PxC"/>
-                            <constraint firstItem="x12-XC-Xh6" firstAttribute="top" secondItem="kct-y0-9WR" secondAttribute="top" constant="5" id="UrQ-vf-Tox"/>
+                            <constraint firstItem="x12-XC-Xh6" firstAttribute="top" secondItem="kct-y0-9WR" secondAttribute="top" id="UrQ-vf-Tox"/>
                             <constraint firstItem="hgw-lh-gRe" firstAttribute="top" secondItem="jxz-2N-nJD" secondAttribute="bottom" constant="70" id="WJp-cc-n4V"/>
                             <constraint firstItem="5ut-iQ-kPk" firstAttribute="top" secondItem="x12-XC-Xh6" secondAttribute="bottom" constant="50" id="X0E-Um-h2G"/>
                             <constraint firstItem="MkK-Qu-OPO" firstAttribute="centerX" secondItem="92x-ux-hgN" secondAttribute="centerX" id="YQb-9P-r7d"/>
@@ -204,7 +204,7 @@
                             <constraint firstItem="Cwr-p7-Bup" firstAttribute="top" secondItem="hgw-lh-gRe" secondAttribute="bottom" constant="30" id="rVn-bJ-u9s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a1H-Xd-hAZ"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentsLabel" destination="hgw-lh-gRe" id="3fn-fi-4fa"/>
                         <outlet property="contentsTextField" destination="Cwr-p7-Bup" id="WeF-nt-YKV"/>
